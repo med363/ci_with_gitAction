@@ -4,8 +4,6 @@
 name: Node.js CI
 #wa9teh lezem tsir
 on:
-  push:
-    branches: [ "amine" ]
   pull_request:
     branches: [ "main" ]
 #chnia ili lazmo isir wa9telli il wa7ed ya3mil pull_request

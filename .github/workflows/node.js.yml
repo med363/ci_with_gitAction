@@ -1,0 +1,39 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+#name of action
+name: Node.js CI
+#wa9teh lezem tsir
+on:
+  push:
+    branches: [ amine ]
+  pull_request:
+    branches: [ main ]
+#chnia ili lazmo isir wa9telli il wa7ed ya3mil pull_request
+jobs:
+#name of job
+  build:
+#run on this vm
+    runs-on: ubuntu-latest
+#les version node disponible
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+#pull dernier code fil repo
+    - uses: actions/checkout@v3
+#on travail avec projet react donc il suffit de faire setup lil nodejs
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+#installl npm ==> npm clean install
+    - run: npm ci
+## build my project  if present
+
+    - run: npm run build --if-present
+# run test trouve dans App.test.js
+    - run: npm test
+    - run: npm build

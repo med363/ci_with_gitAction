@@ -5,6 +5,7 @@ function App() {
   return (
     <div className="App">
 med amine ci,workflow
+<p>continous integration</p>
     </div>
   );
 }

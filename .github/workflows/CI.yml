@@ -29,10 +29,6 @@ jobs:
         cache: 'npm'
 #installl npm ==> npm clean install
     - run: npm ci
-<<<<<<< HEAD
-    - run: npm run build
-=======
->>>>>>> b97b7a3008231648952fd129947b192f720b56d0
 # run test trouve dans App.test.js
     - run: npm test
     - run: npm run build
